@@ -1,10 +1,10 @@
 {
   "name": "nomad_callenge",
   "version": "1.0.0",
-  "description": "",
+  "description": "Nomad Challenge",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gygy2006/nomad-challenge.git"
+    "url": "git+https://github.com/gygy2006/nomad-challenge/tree/master"
   },
   "main": "tailwind.config.js",
   "scripts": {
@@ -18,5 +18,8 @@
     "gulp-sass": "^4.1.0",
     "node-sass": "^5.0.0",
     "tailwindcss": "^2.0.3"
-  }
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }
