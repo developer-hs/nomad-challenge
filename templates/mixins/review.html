@@ -1,0 +1,28 @@
+<div class="flex justify-center mb-4 pb-4 ">
+  <div class="flex w-2/3 border-b">
+    <div class="flex flex-col w-1/4 ">
+      <div>
+        <span class="flex justify-center text-center font-semibold">{{ review.created_by.first_name }}</span>
+      </div>
+      <div class="flex justify-center text-center">
+        {% if review.rating == 1 %}
+          <span class="text-red-400">★</span><span>☆☆☆☆</span>
+        {% elif review.rating == 2 %}
+          <span class="text-red-400">★★</span><span>☆☆☆</span>
+        {% elif review.rating == 3 %}
+          <span class="text-red-400">★★★</span><span>☆☆</span>
+        {% elif review.rating == 4 %}
+          <span class="text-red-400">★★★★</span><span>☆</span>
+        {% elif review.rating == 5 %}
+          <span class="text-red-400">★★★★★</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="felx justify-center mx-4 px-4 w-2/3 pb-4">
+      {{ review.text }}
+    </div>
+    {% if request.user == review.created_by %}
+    <a href="{% url 'reviews:delete' review.pk obj.pk%}?kind={{kind}}" class="border border-red-400 bg-red-300 text-gray-700 rounded py-1 w-24 h-10 text-center font-semibold hover:bg-red-500">Delete</a>
+  {% endif %}
+  </div>
+</div>

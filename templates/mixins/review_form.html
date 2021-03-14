@@ -1,0 +1,61 @@
+  <form class=" flex flex-col items-center pt-4" method="POST" , action="{% url 'reviews:create' pk=obj.pk%}?kind={{kind}}">
+    {% csrf_token %}
+    <label for="id_text"></label>
+    <textarea class= "border rounded-lg h-24 w-2/3 items-center flex justify-center px-4" name="text" cols="40" rows="10" required="" id="id_text" placeholder="Write a review."></textarea>
+    <div class="w-2/3 float-right" id="rating">
+      <button class="flex justify-end bg-green-400 hover:bg-green-600 text-white font-bold mt-4 py-2 px-4 rounded float-right">Submit </button>
+      <div class="border rounded w-32 flex justify-center flex-col mt-2 shadow-md float-right mr-4">  
+        <div>
+          <span class="flex justify-center font-semibold">RATING</span>
+        </div>
+        <div class="flex justify-center ">
+          <span id="rating_1" style="text-shadow: 0 0 0 black;">
+            ☆
+          </span>
+          <span id="rating_2">
+            ☆
+          </span>
+          <span id="rating_3">
+            ☆
+          </span>
+          <span id="rating_4">
+            ☆
+          </span>
+          <span id="rating_5">
+            ☆
+          </span>
+        </div>
+      </div>
+
+    </div>
+    <label for="id_rating"></label>
+    <input class="justify-start opacity-0" type="number" name="rating" min="1" max="5" required="" id="id_rating">
+  </form>
+
+  <script>
+
+    const _ratingHandler = (e) => {
+      const target = e.target
+      const ratingNumber = Number(target.id.slice(-1))
+      for (let i=1; i <= 5; i++ ){
+        const changeStar = document.querySelector(`#rating_${i}`)
+        if (i <= ratingNumber) {
+          changeStar.innerHTML = "★"
+          changeStar.setAttribute("class" , "font-semibold")
+          changeStar.classList += " text-red-400"
+        } else {
+          changeStar.innerHTML = "☆"
+          changeStar.removeAttribute("class", "text-red-400")
+          changeStar.removeAttribute("class", "font-semibold")
+        }
+      }
+      const formRating = document.querySelector("#id_rating")
+      formRating.value = ratingNumber
+    }
+
+    const rating = document.querySelector("#rating")
+    const ratingChild = rating.getElementsByTagName("span")
+    for (let i=0; i < ratingChild.length; i++) {
+      ratingChild[i].addEventListener("click" , _ratingHandler)
+    }
+  </script>

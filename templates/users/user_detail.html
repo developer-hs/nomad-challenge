@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  {{user_obj.first_name}}'s Profile
+{% endblock page_title %}
+
+
+{% block content %}
+
+    <div>
+      <div class="flex justify-center">
+        <h1 class="text-center font-semobold text-4xl mt-2">{{user_obj.first_name}}
+        </h1>
+      </div>
+      <div class="flex justify-center border w-2/3 mx-auto mt-4 shadow-md py-6">
+        <span class="text-center text-2xl">{{ user_obj.bio }}</span>
+      </div>
+        <div class="w-32 float-right mr-16">
+          <a class="flex bg-green-400 hover:bg-green-600 text-white font-bold mt-4 py-2 px-4 rounded" href="{% url 'users:update' %}">Edit Profile</a>
+        </div>
+
+    </div>
+{% endblock content %} 
