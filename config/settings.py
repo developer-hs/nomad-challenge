@@ -148,7 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*' , ".elasticbeanstalk.com"]
 X_FRAME_OPTIONS = '*'
 
 
