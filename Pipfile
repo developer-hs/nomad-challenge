@@ -9,6 +9,7 @@ pillow = "*"
 django-seed = "*"
 django-dotenv = "*"
 pipenv-to-requirements = "*"
+psycopg2 = "*"
 
 [dev-packages]
 flake8 = "*"
