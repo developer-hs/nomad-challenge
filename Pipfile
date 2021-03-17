@@ -10,6 +10,8 @@ django-seed = "*"
 django-dotenv = "*"
 pipenv-to-requirements = "*"
 psycopg2 = "*"
+django-storages = "*"
+boto3 = "*"
 
 [dev-packages]
 flake8 = "*"
